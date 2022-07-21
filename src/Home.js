@@ -13,7 +13,6 @@ const Home = ({ clients, loading, active, handlePagination }) => {
         </div>
       ) : (
         <section className="container">
-          <h2>Bismlahir rahmanir rahim</h2>
           {clients?.results?.map((client) => (
             <Clients key={client.url} client={client} />
           ))}
