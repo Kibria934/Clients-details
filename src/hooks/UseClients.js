@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const useClients = () => {
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(false);
   const [active, setActive] = useState(1);
   const [firsClients, setFirstClients] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -13,6 +15,7 @@ const useClients = () => {
       console.log(res.data);
       setClients(res.data);
       setFirstClients(res.data);
+      navigate("/");
       setLoading(false);
     });
   }, []);
@@ -22,6 +25,8 @@ const useClients = () => {
       setLoading(true);
       setClients(firsClients);
       setActive(query);
+      navigate("/");
+
       setLoading(false);
     }
     if (query !== 1) {
@@ -31,6 +36,7 @@ const useClients = () => {
         .then((data) => {
           setClients(data);
           setActive(query);
+          navigate("/");
           setLoading(false);
         });
     }
@@ -42,8 +48,6 @@ const useClients = () => {
     setLoading,
     active,
     setActive,
-    // firsClients,
-    // setFirstClients,
     handlePagination,
   };
 };
