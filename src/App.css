@@ -1,5 +1,7 @@
 :root {
-  --clr: linear-gradient(to right, #eb3c14, #09c6ffca);
+  --clr: #d4f1f4;
+  --primaryColor: #05445e;
+  --secColor: #189ab4;
 }
 .App {
   display: flex;
@@ -14,11 +16,13 @@
   width: 90%;
   margin: 30px;
   padding: 10px 20px;
-  background-color: rgba(233, 233, 233, 0.8);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   border-radius: 10px;
 }
 .card {
-  background-color: #ffff;
+  background-color: var(--clr);
+  transition: all 0.3s;
   border-radius: 10px;
   padding: 10px 35px;
   display: flex;
@@ -26,8 +30,17 @@
   align-items: center;
   margin: 10px 0;
 }
+.card:hover,
+:focus {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  transform: scale(1.02);
+  background-color: var(--secColor);
+  margin: 2px;
+}
 .details_btn {
-  background-color: orangered;
+  background-color: var(--primaryColor);
   text-decoration: none;
   margin: 0;
   font-size: 20px;
@@ -69,16 +82,23 @@
   align-items: center;
 }
 .page {
+  transition: all 0.2s;
   padding: 5px 10px;
-  margin: 5px;
-  background-color: rgb(70, 131, 169);
+  margin: 20px 10px;
+  background-color: var(--secColor);
   color: white;
   font-weight: 600;
   font-size: 25px;
   cursor: pointer;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.page:hover {
+  transform: scale(1.15);
 }
 .active {
-  background-color: red;
+  background-color: var(--primaryColor);
 }
 .details_container {
   display: flex;
@@ -97,13 +117,27 @@
   margin: 15px;
 }
 .d_container {
+  transition: all 0.2s;
   width: 90%;
   min-height: 20vh;
   font-size: 20px;
   margin: 0 auto;
+  background-color: #75e6da;
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.d_container p {
+  font-size: 25px;
+}
+.d_container h1:hover {
+  transition: all 0.3s;
+  transform: scale(1.02);
+  cursor: pointer;
+}
+.d_container:hover {
+  transform: scale(1.02);
+  text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.503);
 }
 .flex_2 {
   flex: 2;

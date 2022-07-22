@@ -4,11 +4,8 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { ClipLoader, HashLoader } from "react-spinners";
 
 const Home = ({ clients, loading, active, handlePagination }) => {
-  const handleLoad = () => {
-    <p>This is laoding design</p>;
-  };
   return (
-    <div onLoad={handleLoad} className="App">
+    <div className="App">
       {loading ? (
         <div className="l_container">
           <HashLoader color="#0f4883" loading size={96} speedMultiplier={1} />

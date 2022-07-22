@@ -23,7 +23,7 @@ const Clients = ({ client }) => {
         <div className="flex_1">
           <h3>Height</h3>
           <h3>
-            {client.height} <sub>inc</sub>
+            {client.height} <sub>/cm</sub>
           </h3>
         </div>
         <div className="flex_1">
