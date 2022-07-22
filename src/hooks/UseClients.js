@@ -26,7 +26,6 @@ const useClients = () => {
       setClients(firsClients);
       setActive(query);
       navigate("/");
-
       setLoading(false);
     }
     if (query !== 1) {

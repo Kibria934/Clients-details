@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Clients from "./components/Clients";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { ClipLoader, HashLoader } from "react-spinners";
 
 const Home = ({ clients, loading, active, handlePagination }) => {
+  const handleLoad = () => {
+    <p>This is laoding design</p>;
+  };
   return (
-    <div className="App">
+    <div onLoad={handleLoad} className="App">
       {loading ? (
         <div className="l_container">
-          <div>
-            <p>Loading...</p>
-          </div>
+          <HashLoader color="#0f4883" loading size={96} speedMultiplier={1} />
         </div>
       ) : (
         <section className="container">
@@ -23,7 +25,7 @@ const Home = ({ clients, loading, active, handlePagination }) => {
                 <p
                   key={num}
                   onClick={() => handlePagination(num + 1)}
-                  className={active == num + 1 ? `page active` : "page"}
+                  className={active === num + 1 ? `page active` : "page"}
                 >
                   {num + 1}
                 </p>

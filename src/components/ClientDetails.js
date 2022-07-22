@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ClipLoader, HashLoader } from "react-spinners";
 
 const ClientDetails = () => {
   const { id } = useParams();
@@ -8,14 +9,12 @@ const ClientDetails = () => {
   const [home, setHome] = useState([]);
   const [residents, setResidents] = useState([]);
   const [films, setFilms] = useState([]);
-  const [DescLoading, setDesLaoding] = useState(false);
+  const [DescLoading, setDescLaoding] = useState(true);
 
   useEffect(() => {
-    setDesLaoding(true);
     axios.get(`https://swapi.dev/api/people/${id}`).then((res) => {
       setDetails(res.data);
       console.log(res.data);
-      setDesLaoding(false);
     });
   }, []);
 
@@ -27,9 +26,11 @@ const ClientDetails = () => {
       });
     }
     if (details.films) {
+      setDescLaoding(true);
       axios.get(`${details.films[0]}`).then((res) => {
         setFilms(res.data);
         console.log(res.data);
+        setDescLaoding(false);
       });
     }
   }, [details]);
@@ -37,7 +38,9 @@ const ClientDetails = () => {
   return (
     <div className="d_container">
       {DescLoading ? (
-        <p className="desc_loading">Loading...</p>
+        <div className="loader_container">
+          <HashLoader color="#0f4883" loading size={96} speedMultiplier={1} />
+        </div>
       ) : (
         <section className="info_container d_flex">
           <div className="flex_1">
@@ -69,7 +72,12 @@ const ClientDetails = () => {
             <p>{home.climate}</p>
             <>
               {DescLoading ? (
-                <p className="desc_loading">loading...</p>
+                <HashLoader
+                  color="#0f4883"
+                  loading
+                  size={96}
+                  speedMultiplier={1}
+                />
               ) : (
                 <>
                   <h1>Films</h1>

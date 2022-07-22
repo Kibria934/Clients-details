@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, Outlet, useParams } from "react-router-dom";
 import { TbListDetails } from "react-icons/tb";
+import { BiHide } from "react-icons/bi";
 
 const Clients = ({ client }) => {
   const { id } = useParams();
@@ -38,16 +39,16 @@ const Clients = ({ client }) => {
               client.url.split("/")[client.url.split("/").length - 2]
             }`}
           >
-            {isOpen ? "Hide Details" : "View Details"}
+            View Details
             <span style={{ marginLeft: "8px" }}>
               <TbListDetails />
             </span>
           </Link>
         ) : (
           <Link className="details_btn" onClick={handleView} to={`/client`}>
-            {isOpen ? "Hide Details" : "View Details"}
+            Hide Details
             <span style={{ marginLeft: "8px" }}>
-              <TbListDetails />
+              <BiHide />
             </span>
           </Link>
         )}
