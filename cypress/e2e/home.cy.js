@@ -2,7 +2,7 @@
 
 describe("Home page", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/");
+    cy.visit("https://lucent-beignet-410bc6.netlify.app/");
   });
 
   it("Should display the clients", () => {
