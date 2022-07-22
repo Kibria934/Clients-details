@@ -12,7 +12,6 @@ const useClients = () => {
   useEffect(() => {
     setLoading(true);
     axios.get("https://swapi.dev/api/people/").then((res) => {
-      console.log(res.data);
       setClients(res.data);
       setFirstClients(res.data);
       navigate("/");

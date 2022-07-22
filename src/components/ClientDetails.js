@@ -14,7 +14,6 @@ const ClientDetails = () => {
   useEffect(() => {
     axios.get(`https://swapi.dev/api/people/${id}`).then((res) => {
       setDetails(res.data);
-      console.log(res.data);
     });
   }, []);
 
@@ -22,14 +21,12 @@ const ClientDetails = () => {
     if (details.homeworld) {
       axios.get(`${details.homeworld}`).then((res) => {
         setHome(res.data);
-        console.log(res.data);
       });
     }
     if (details.films) {
       setDescLaoding(true);
       axios.get(`${details.films[0]}`).then((res) => {
         setFilms(res.data);
-        console.log(res.data);
         setDescLaoding(false);
       });
     }
@@ -42,7 +39,7 @@ const ClientDetails = () => {
           <HashLoader color="#0f4883" loading size={96} speedMultiplier={1} />
         </div>
       ) : (
-        <section className="info_container d_flex">
+        <section className="info_container">
           <div className="flex_1">
             <h1>Client Name</h1>
             <p>{details.name}</p>

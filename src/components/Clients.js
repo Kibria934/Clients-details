@@ -14,7 +14,7 @@ const Clients = ({ client }) => {
     <div className="details_container">
       <section className="card">
         <div className="flex_1">
-          <h3>{client.name}</h3>
+          <h1>{client.name}</h1>
         </div>
         <div className="flex_1">
           <h3>Birth Year</h3>
